@@ -2,7 +2,7 @@
 #
 # About: Install Morrowind Ecarlate automatically
 # Author: liberodark
-# Thanks : erdnalexi, T0MuX
+# Thanks : erdnalexi, T0MuX, frju365
 # License: GNU GPLv3
 
   update_source="https://raw.githubusercontent.com/liberodark/Ecarlate-Installer/master/install.sh"
