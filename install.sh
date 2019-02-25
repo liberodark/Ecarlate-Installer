@@ -151,8 +151,9 @@
 
   if [ "$?" != 0 ]; then
   	  echo "Success Morrowind is installed"
-  	  
+
       echo "Success Morrowind is up to date"
+      exit
   else
       echo "Error Morrowind is not Installed"
   fi
@@ -285,3 +286,4 @@
   else
       echo "tes3mp is Extracted"
   fi
+  exit
