@@ -57,37 +57,37 @@
   echo "wget is Installed"
   fi
 
-  # Check OS & unzip
+  # Check OS & p7zip
 
-  which unzip &> /dev/null
+  which 7z &> /dev/null
 
   if [ $? != 0 ]; then
-    echo "unzip is not Installed"
+    echo "p7zip is not Installed"
      distribution=$(cat /etc/issue | head -n +1 | awk '{print $1}')
 
     if [ "$distribution" = "Manjaro" ]; then
-      sudo pacman -S unzip # Manjaro / Arch Linux
+      sudo pacman -S p7zip # Manjaro / Arch Linux
     
     elif [ "$distribution" = "Ubuntu" ]; then
-      sudo apt install unzip # Ubuntu / Debian
+      sudo apt install p7zip # Ubuntu / Debian
     
     elif [ "$distribution" = "OpenSuse" ]; then
-      sudo yum install unzip # OpenSuse / CentOS
+      sudo yum install p7zip # OpenSuse / CentOS
     
     elif [ "$distribution" = "Fedora" ]; then
-      sudo dnf install unzip # Fedora
+      sudo dnf install p7zip # Fedora
     
     elif [ "$distribution" = "CentOS" ]; then
-      sudo yum install unzip # OpenSuse / CentOS
+      sudo yum install p7zip # OpenSuse / CentOS
     
     elif [ "$distribution" = "Debian" ]; then
-      sudo apt install unzip # Ubuntu / Debian
+      sudo apt install p7zip # Ubuntu / Debian
     
     elif [ "$distribution" = "Gentoo" ]; then
-      su -c emerge unzip # Gentoo
+      su -c emerge p7zip # Gentoo
     fi
     else
-  echo "unzip is Installed"
+  echo "p7zip is Installed"
   fi
 
   # Check OS & sudo
@@ -147,7 +147,7 @@
 ### Install Morrowind ###
 
   # Download Morrowind
-  wget https://stream.and.me.ynh.ovh/site/Morrowind.tar.gz &> /dev/null
+  wget https://stream.and.me.ynh.ovh/site/Morrowind.7z &> /dev/null
 
   if [ "$?" != 0 ]; then
       echo "Error Downloading Morrowind"
@@ -156,7 +156,7 @@
   fi
 
   # Download SHA256
-   wget https://stream.and.me.ynh.ovh/site/Morrowind.tar.gz.sha256sum &> /dev/null
+   wget https://stream.and.me.ynh.ovh/site/Morrowind.7z.sha512sum &> /dev/null
 
   if [ "$?" != 0 ]; then
       echo "Error Download SHA"
@@ -165,13 +165,13 @@
   fi
 
   # Check Morrowind
-  sha256sum -c Morrowind.tar.gz.sha512sum &> /dev/null
+  sha256sum -c Morrowind.7z.sha512sum &> /dev/null
 
   if [ "$?" != 0 ]; then
       echo "Error Check Morrowind"
   else
       echo "Check Success Morrowind"
-      rm Morrowind.tar.gz.sha256sum
+      rm Morrowind.7z.sha512sum
   fi
 
 
@@ -192,7 +192,7 @@
   fi
 
   # Extract
-  tar -xvf Morrowind.tar.gz &> /dev/null
+  7z x ~/Games/Morrowind.7z &> /dev/null
 
   if [ "$?" != 0 ]; then
       echo "Launcher is not Extracted"
@@ -201,7 +201,7 @@
       wget https://raw.githubusercontent.com/liberodark/Ecarlate-Installer/master/morrowind.png &> /dev/null
   fi
 
-  sudo mv ~/Games/morrowind.png /usr/share/pixmaps/ &> /dev/null
+  sudo mv morrowind.png /usr/share/pixmaps/ &> /dev/null
 
   if [ "$?" != 0 ]; then
       echo "Install Icon is not Possible"
@@ -210,21 +210,12 @@
       wget https://raw.githubusercontent.com/liberodark/Ecarlate-Installer/master/morrowind.desktop &> /dev/null
   fi
 
-  sudo mv ~/Games/Morrowind.desktop /usr/share/applications/ &> /dev/null
+  sudo mv Morrowind.desktop /usr/share/applications/ &> /dev/null
 
   if [ "$?" != 0 ]; then
       echo "Install Desktop is not Possible"
   else
       echo "Install Desktop is done"
-  fi
-
-  # Run chmod
-  sudo chmod +x /opt/Last-Epoch/Launcher &> /dev/null
-
-  if [ "$?" != 0 ]; then
-      echo "Launcher is not Executable"
-  else
-      echo "Launcher is Executable"
   fi
 
   # Create version file
@@ -246,7 +237,7 @@
   fi
 
   # Clean
-  rm ~/Games/Morrowind.tar.gz &> /dev/null
+  rm ~/Games/Morrowind.7z &> /dev/null
 
   if [ "$?" != 0 ]; then
       echo "Download is not Cleaned"
@@ -274,7 +265,7 @@
   fi
 
   # Extract
-  tar -xvf tes3mp.tar.gz &> /dev/null
+  tar -xvf ~/Games/Morrowind/tes3mp.tar.gz &> /dev/null
 
   if [ "$?" != 0 ]; then
       echo "tes3mp is not Extracted"
