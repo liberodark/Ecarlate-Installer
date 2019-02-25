@@ -147,9 +147,7 @@
 ### Check Morrowind Install ###
 
   # Check Morrowind Install
-  which ls ~/Games/Morrowind/version.txt &> /dev/null
-
-  if [ "$?" != 0 ]; then
+  if [[ -e "~/Games/Morrowind/version.txt" ]]; then
   	  echo "Success Morrowind is installed"
       echo "Success Morrowind is up to date"
       exit
