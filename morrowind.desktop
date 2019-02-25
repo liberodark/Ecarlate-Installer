@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Morrowind - Ecarlate
-Comment=Online RPGG
+Comment=Online RPG
 Exec="~/Games/Morrowind/Launcher" %U
 Terminal=false
 Type=Application
