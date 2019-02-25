@@ -147,10 +147,10 @@
 ### Check Morrowind Install ###
 
   # Check Morrowind Install
-  if [ -e "~/Games/Morrowind/version.txt" ]; then
+  if [ -e ~/Games/Morrowind/version.txt ]; then
   	  echo "Success Morrowind is installed"
-  	  version_online=$(md5sum "https://fichier_en_ligne/version.txt")
-  	  version_local=$(md5sum "~/Games/Morrowind/version.txt")
+  	  version_online=$(md5sum https://www.dropbox.com/s/38il47hyok1sv6s/Version%20Serveur%20Morrowind.txt?dl=1)
+  	  version_local=$(md5sum ~/Games/Morrowind/version.txt)
   	  if [ $version_online -eq $version_local ]; then
   	  	wget https://update.com -o update.tar.gz
   	  	mv update.tar.gz ~/Games/Morrowind/ && tar -xvf ~/Games/Morrowind/update.tar.gz
