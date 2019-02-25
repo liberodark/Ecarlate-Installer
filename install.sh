@@ -144,6 +144,19 @@
   echo "openmw is Installed"
   fi
 
+### Check Morrowind Install ###
+
+  # Check Morrowind Install
+  which ls /Games/Morrowind/ &> /dev/null
+
+  if [ "$?" != 0 ]; then
+  	  echo "Success Morrowind is installed"
+  	  
+      echo "Success Morrowind is up to date"
+  else
+      echo "Error Morrowind is not Installed"
+  fi
+
 ### Install Morrowind ###
 
   # Download Morrowind
