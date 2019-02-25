@@ -198,6 +198,7 @@
       echo "Launcher is not Extracted"
   else
       echo "Launcher is Extracted"
+      wget https://raw.githubusercontent.com/liberodark/Ecarlate-Installer/master/morrowind.png &> /dev/null
   fi
 
   sudo mv ~/Games/morrowind.png /usr/share/pixmaps/ &> /dev/null
@@ -206,6 +207,7 @@
       echo "Install Icon is not Possible"
   else
       echo "Install Icon is done"
+      wget https://raw.githubusercontent.com/liberodark/Ecarlate-Installer/master/morrowind.desktop &> /dev/null
   fi
 
   sudo mv ~/Games/Morrowind.desktop /usr/share/applications/ &> /dev/null
