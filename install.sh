@@ -149,7 +149,7 @@
   # Check Morrowind Install
   if [ -e ~/Games/Morrowind/version.txt ]; then
   	  echo "Success Morrowind is installed"
-  	  wget https://www.dropbox.com/s/38il47hyok1sv6s/Version%20Serveur%20Morrowind.txt?dl=1 -o version.txt
+  	  wget https://www.dropbox.com/s/38il47hyok1sv6s/Version%20Serveur%20Morrowind.txt?dl=1 -O version.txt
   	  version_online=$(md5sum version.txt)
   	  version_local=$(md5sum ~/Games/Morrowind/version.txt)
   	  if [ $version_online -eq $version_local ]; then
