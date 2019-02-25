@@ -153,7 +153,7 @@
   	  version_local=$(md5sum "~/Games/Morrowind/version.txt")
   	  if [ $version_online -eq $version_local ]; then
   	  	wget https://update.com -o update.tar.gz
-  	  	mv update.tar.gz ~/Games/Morrowind/ && tar -xvf update.tar.gz
+  	  	mv update.tar.gz ~/Games/Morrowind/ && tar -xvf ~/Games/Morrowind/update.tar.gz
   	  	rm ~/Games/Morrowind/update.tar.gz
       fi
       echo "Success Morrowind is up to date"
