@@ -35,25 +35,19 @@
     if [ "$distribution" = "Manjaro" ]; then
       sudo pacman -S wget # Manjaro / Arch Linux
     
-    elif [ "$distribution" = "Ubuntu" ]; then
+    elif [ "$distribution" = "Ubuntu" -o "$distribution" = "Debian" ]; then
       sudo apt install wget # Ubuntu / Debian
     
-    elif [ "$distribution" = "OpenSuse" ]; then
+    elif [ "$distribution" = "OpenSuse" -o "$distribution" = "CentOS" ]; then
       sudo yum install wget # OpenSuse / CentOS
     
     elif [ "$distribution" = "Fedora" ]; then
       sudo dnf install wget # Fedora
     
-    elif [ "$distribution" = "CentOS" ]; then
-      sudo yum install wget # OpenSuse / CentOS
-    
-    elif [ "$distribution" = "Debian" ]; then
-      sudo apt install wget # Ubuntu / Debian
-    
     elif [ "$distribution" = "Gentoo" ]; then
       su -c emerge wget # Gentoo
     fi
-    else
+  else
   echo "wget is Installed"
   fi
 
@@ -68,20 +62,14 @@
     if [ "$distribution" = "Manjaro" ]; then
       sudo pacman -S p7zip # Manjaro / Arch Linux
     
-    elif [ "$distribution" = "Ubuntu" ]; then
+    elif [ "$distribution" = "Ubuntu" -o "$distribution" = "Debian" ]; then
       sudo apt install p7zip # Ubuntu / Debian
     
-    elif [ "$distribution" = "OpenSuse" ]; then
+    elif [ "$distribution" = "OpenSuse" -o "$distribution" = "CentOS" ]; then
       sudo yum install p7zip # OpenSuse / CentOS
     
     elif [ "$distribution" = "Fedora" ]; then
       sudo dnf install p7zip # Fedora
-    
-    elif [ "$distribution" = "CentOS" ]; then
-      sudo yum install p7zip # OpenSuse / CentOS
-    
-    elif [ "$distribution" = "Debian" ]; then
-      sudo apt install p7zip # Ubuntu / Debian
     
     elif [ "$distribution" = "Gentoo" ]; then
       su -c emerge p7zip # Gentoo
@@ -101,14 +89,11 @@
     if [ "$distribution" = "Manjaro" ]; then
       su pacman -S sudo # Manjaro / Arch Linux
     
-    elif [ "$distribution" = "OpenSuse" ]; then
+    elif [ "$distribution" = "OpenSuse" -o "$distribution" = "CentOS" ]; then
       su yum install sudo # OpenSuse / CentOS
     
     elif [ "$distribution" = "Fedora" ]; then
       su dnf install sudo # Fedora
-    
-    elif [ "$distribution" = "CentOS" ]; then
-      su yum install sudo # OpenSuse / CentOS
     
     elif [ "$distribution" = "Gentoo" ]; then
       su -c emerge sudo # Gentoo
@@ -128,14 +113,11 @@
     if [ "$distribution" = "Manjaro" ]; then
       su pacman -S openmw # Manjaro / Arch Linux
     
-    elif [ "$distribution" = "OpenSuse" ]; then
+    elif [ "$distribution" = "OpenSuse" -o "$distribution" = "CentOS" ]; then
       su yum install openmw # OpenSuse / CentOS
     
     elif [ "$distribution" = "Fedora" ]; then
       su dnf install openmw # Fedora
-    
-    elif [ "$distribution" = "CentOS" ]; then
-      su yum install openmw # OpenSuse / CentOS
     
     elif [ "$distribution" = "Gentoo" ]; then
       su -c emerge openmw # Gentoo
