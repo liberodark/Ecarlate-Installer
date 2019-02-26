@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Morrowind - Ecarlate
 Comment=Online RPG
-Exec="~/Games/Morrowind/Launcher" %U
+Exec="~/Games/Morrowind/launcher.sh" %U
 Terminal=false
 Type=Application
 Icon=morrowind
