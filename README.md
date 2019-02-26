@@ -6,7 +6,7 @@ Morrowind - Ecarlate Installer for Linux
 Copy and Past in your terminal :
 
 ```bash
-wget -Nnv https://raw.githubusercontent.com/liberodark/Ecarlate-Installer/master/install.sh && chmod +x install.sh; ./install.sh
+wget -Nnv https://raw.githubusercontent.com/liberodark/Ecarlate-Installer/master/launcher.sh && chmod +x launcher.sh; ./launcher.sh
 ```
 
 # Linux Compatibility :
