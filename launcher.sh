@@ -5,7 +5,7 @@
 # Thanks : erdnalexi, T0MuX, frju365
 # License: GNU GPLv3
 
-  update_source="https://raw.githubusercontent.com/liberodark/Ecarlate-Installer/master/install.sh"
+  update_source="https://raw.githubusercontent.com/liberodark/Ecarlate-Launcher/master/launcher.sh"
   version="1.0"
 
   echo "Welcome on Morrowind - Ecarlate Install Script $version"
