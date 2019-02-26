@@ -213,7 +213,7 @@
       echo "Install Icon is done"
   fi
 
-  sudo mv Morrowind.desktop /usr/share/applications/ &> /dev/null
+  sudo mv morrowind.desktop /usr/share/applications/ &> /dev/null
 
   if [ "$?" != 0 ]; then
       echo "Install Desktop is not Possible"
