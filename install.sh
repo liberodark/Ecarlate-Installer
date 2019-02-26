@@ -139,6 +139,7 @@
   	  	mv update.tar.gz ~/Games/Morrowind/ && tar -xvf ~/Games/Morrowind/update.tar.gz
   	  	rm ~/Games/Morrowind/update.tar.gz
         mv version.txt ~/Games/Morrowind/version.txt
+        bash -x ~/Games/Morrowind/openmw-launcher &> /dev/null
       fi
       echo "Success Morrowind is up to date"
       exit
@@ -228,15 +229,6 @@
       echo "Download is not Cleaned"
   else
       echo "Download is Cleaned"
-  fi
-  
-  # Run Game
-  bash -x ~/Games/Morrowind/openmw-launcher &> /dev/null
-
-  if [ "$?" != 0 ]; then
-      echo "Run game KO"
-  else
-      echo "Run game OK"
   fi
   
   exit
