@@ -131,13 +131,14 @@
   # Check Morrowind Install
   if [ -e ~/Games/Morrowind/version.txt ]; then
   	  echo "Success Morrowind is installed"
-  	  wget https://www.dropbox.com/s/38il47hyok1sv6s/Version%20Serveur%20Morrowind.txt?dl=1 -O version.txt
+  	  wget https://raw.githubusercontent.com/liberodark/Ecarlate-Installer/master/version.txt -O version.txt
   	  version_online=$(md5sum version.txt)
   	  version_local=$(md5sum ~/Games/Morrowind/version.txt)
   	  if [ $version_online -eq $version_local ]; then
   	  	wget https://update.com -o update.tar.gz
   	  	mv update.tar.gz ~/Games/Morrowind/ && tar -xvf ~/Games/Morrowind/update.tar.gz
   	  	rm ~/Games/Morrowind/update.tar.gz
+        mv version.txt ~/Games/Morrowind/version.txt
       fi
       echo "Success Morrowind is up to date"
       exit
