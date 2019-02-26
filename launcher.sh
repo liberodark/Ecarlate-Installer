@@ -221,6 +221,15 @@
   else
       echo "Install Desktop is done"
   fi
+  
+  cp ~/.config/openmw/openmw.cfg ~/.config/openmw/openmw.cfg.save &> /dev/null
+
+  if [ "$?" != 0 ]; then
+      echo "Install Desktop is not Possible"
+  else
+      echo "Install Desktop is done"
+      mv ~/Games/Morrowind/openmw.cfg ~/.config/openmw/openmw.cfg &> /dev/null
+  fi
 
   # Clean
   rm ~/Games/Morrowind.7z &> /dev/null
