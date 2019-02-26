@@ -199,7 +199,6 @@
       echo "Launcher is not Extracted"
   else
       echo "Launcher is Extracted"
-      wget https://raw.githubusercontent.com/liberodark/Ecarlate-Installer/master/morrowind.png &> /dev/null
   fi
 
   sudo mv morrowind.png /usr/share/pixmaps/ &> /dev/null
@@ -208,7 +207,6 @@
       echo "Install Icon is not Possible"
   else
       echo "Install Icon is done"
-      wget https://raw.githubusercontent.com/liberodark/Ecarlate-Installer/master/morrowind.desktop &> /dev/null
   fi
 
   sudo mv Morrowind.desktop /usr/share/applications/ &> /dev/null
@@ -219,24 +217,6 @@
       echo "Install Desktop is done"
   fi
 
-  # Create version file
-  touch ~/Games/Morrowind/version.txt &> /dev/null
-
-  if [ "$?" != 0 ]; then
-      echo "Version file is not Created"
-  else
-      echo "Version file is Created"
-  fi
-
-  # Update version file
-  echo "$version" > ~/Games/Morrowind/version.txt &> /dev/null
-
-  if [ "$?" != 0 ]; then
-      echo "Version file is not Updated"
-  else
-      echo "Version file is Updated"
-  fi
-
   # Clean
   rm ~/Games/Morrowind.7z &> /dev/null
 
@@ -244,33 +224,5 @@
       echo "Download is not Cleaned"
   else
       echo "Download is Cleaned"
-  fi
-
-### Install tes3mp ###
-
-  # Download tes3mp
-  wget https://github.com/TES3MP/openmw-tes3mp/releases/download/0.7.0-alpha/tes3mp-GNU+Linux-x86_64-release-0.7.0-alpha-0df32accca-edbcae5b0e.tar.gz -o tes3mp.tar.gz &> /dev/null
-
-  if [ "$?" != 0 ]; then
-      echo "Error Downloading tes3mp"
-  else
-      echo "Download Success tes3mp"
-  fi
-
-  mv tes3mp.tar.gz ~/Games/Morrowind/ &> /dev/null
-
-  if [ "$?" != 0 ]; then
-      echo "Install tes3mp is not Possible"
-  else
-      echo "Install tes3mp is done"
-  fi
-
-  # Extract
-  tar -xvf ~/Games/Morrowind/tes3mp.tar.gz &> /dev/null
-
-  if [ "$?" != 0 ]; then
-      echo "tes3mp is not Extracted"
-  else
-      echo "tes3mp is Extracted"
   fi
   exit
