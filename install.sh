@@ -205,7 +205,7 @@
       echo "Launcher is Extracted"
   fi
 
-  sudo mv ~/Games/morrowind.png /usr/share/pixmaps/ &> /dev/null
+  sudo mv ~/Games/Morrowind/morrowind.png /usr/share/pixmaps/ &> /dev/null
 
   if [ "$?" != 0 ]; then
       echo "Install Icon is not Possible"
@@ -213,7 +213,7 @@
       echo "Install Icon is done"
   fi
 
-  sudo mv ~/Games/morrowind.desktop /usr/share/applications/ &> /dev/null
+  sudo mv ~/Games/Morrowind/morrowind.desktop /usr/share/applications/ &> /dev/null
 
   if [ "$?" != 0 ]; then
       echo "Install Desktop is not Possible"
@@ -222,11 +222,11 @@
   fi
 
   # Clean
-  rm ~/Games/Morrowind.7z &> /dev/null
+  #rm ~/Games/Morrowind.7z &> /dev/null
 
-  if [ "$?" != 0 ]; then
-      echo "Download is not Cleaned"
-  else
-      echo "Download is Cleaned"
-  fi
+  #if [ "$?" != 0 ]; then
+  #    echo "Download is not Cleaned"
+  #else
+  #    echo "Download is Cleaned"
+  #fi
   exit
