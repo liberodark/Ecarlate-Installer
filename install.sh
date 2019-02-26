@@ -188,7 +188,7 @@
       echo "Folder is Created"
   fi
 
-  mv Morrowind.tar.gz ~/Games/ &> /dev/null
+  mv Morrowind.7z ~/Games/ &> /dev/null
 
   if [ "$?" != 0 ]; then
       echo "Install Launcher is not Possible"
@@ -205,7 +205,7 @@
       echo "Launcher is Extracted"
   fi
 
-  sudo mv morrowind.png /usr/share/pixmaps/ &> /dev/null
+  sudo mv ~/Games/morrowind.png /usr/share/pixmaps/ &> /dev/null
 
   if [ "$?" != 0 ]; then
       echo "Install Icon is not Possible"
@@ -213,7 +213,7 @@
       echo "Install Icon is done"
   fi
 
-  sudo mv morrowind.desktop /usr/share/applications/ &> /dev/null
+  sudo mv ~/Games/morrowind.desktop /usr/share/applications/ &> /dev/null
 
   if [ "$?" != 0 ]; then
       echo "Install Desktop is not Possible"
