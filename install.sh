@@ -153,6 +153,7 @@
 
   if [ "$?" != 0 ]; then
       echo "Error Downloading Morrowind"
+      exit
   else
       echo "Download Success Morrowind"
   fi
@@ -162,27 +163,29 @@
 
   if [ "$?" != 0 ]; then
       echo "Error Download SHA"
+      exit
   else
       echo "Download Success SHA"
   fi
 
   # Check Morrowind
-  sha256sum -c Morrowind.7z.sha512sum &> /dev/null
+  sha512sum -c Morrowind.7z.sha512sum &> /dev/null
 
   if [ "$?" != 0 ]; then
       echo "Error Check Morrowind"
+      exit
   else
       echo "Check Success Morrowind"
       rm Morrowind.7z.sha512sum
   fi
 
 
-  mkdir ~/Games/ &> /dev/null
+  mkdir -p ~/Games/ &> /dev/null
 
   if [ "$?" != 0 ]; then
-      echo "Morrowind is not Installed"
+      echo "Folder is not Created"
   else
-      echo "Morrowind is Installed"
+      echo "Folder is Created"
   fi
 
   mv Morrowind.tar.gz ~/Games/ &> /dev/null
