@@ -197,7 +197,7 @@
   fi
 
   # Extract
-  7z x ~/Games/Morrowind.7z &> /dev/null
+  7z x ~/Games/Morrowind-FR.7z -o$HOME/Games/ &> /dev/null
 
   if [ "$?" != 0 ]; then
       echo "Launcher is not Extracted"
