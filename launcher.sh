@@ -131,10 +131,10 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
 
 ### Install Morrowind ###
 
-  # Download Morrowind
-  wget https://stream.and.me.ynh.ovh/site/Morrowind.7z &> /dev/null
+  # Download Morrowind  
 
-  if [ $? != 0 ]; then
+ if ! wget https://stream.and.me.ynh.ovh/site/Morrowind.7z &> /dev/null
+ then
       echo "Error Downloading Morrowind"
       exit
   else
@@ -142,9 +142,9 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
   fi
 
   # Download SHA256
-   wget https://stream.and.me.ynh.ovh/site/Morrowind.7z.sha512sum &> /dev/null
 
-  if [ $? != 0 ]; then
+ if ! wget https://stream.and.me.ynh.ovh/site/Morrowind.7z.sha512sum &> /dev/null
+ then
       echo "Error Download SHA"
       exit
   else
@@ -152,9 +152,9 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
   fi
 
   # Check Morrowind
-  sha512sum -c Morrowind.7z.sha512sum &> /dev/null
 
-  if [ $? != 0 ]; then
+ if ! sha512sum -c Morrowind.7z.sha512sum &> /dev/null
+ then
       echo "Error Check Morrowind"
       exit
   else
@@ -162,51 +162,51 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
       rm Morrowind.7z.sha512sum
   fi
 
-
-  mkdir -p ~/Games/ &> /dev/null
-
-  if [ $? != 0 ]; then
+ if ! mkdir -p ~/Games/ &> /dev/null
+ then
       echo "Folder is not Created"
   else
       echo "Folder is Created"
   fi
 
-  mv Morrowind.7z ~/Games/ &> /dev/null
-
-  if [ $? != 0 ]; then
+ if ! mv Morrowind.7z ~/Games/ &> /dev/null
+ then
       echo "Install Launcher is not Possible"
   else
       echo "Install Launcher is done"
   fi
 
   # Extract
-  7z x ~/Games/Morrowind-FR.7z -o"$HOME"/Games/ &> /dev/null
+  
 
-  if [ $? != 0 ]; then
+ if ! 7z x ~/Games/Morrowind-FR.7z -o"$HOME"/Games/ &> /dev/null
+ then
       echo "Launcher is not Extracted"
   else
       echo "Launcher is Extracted"
   fi
 
-  sudo mv ~/Games/Morrowind/morrowind.png /usr/share/pixmaps/ &> /dev/null
+  
 
-  if [ $? != 0 ]; then
+ if ! sudo mv ~/Games/Morrowind/morrowind.png /usr/share/pixmaps/ &> /dev/null
+ then
       echo "Install Icon is not Possible"
   else
       echo "Install Icon is done"
   fi
 
-  sudo mv ~/Games/Morrowind/morrowind.desktop /usr/share/applications/ &> /dev/null
+  
 
-  if [ $? != 0 ]; then
+ if ! sudo mv ~/Games/Morrowind/morrowind.desktop /usr/share/applications/ &> /dev/null
+ then
       echo "Install Desktop is not Possible"
   else
       echo "Install Desktop is done"
   fi
   
-  cp ~/.config/openmw/openmw.cfg ~/.config/openmw/openmw.cfg.save &> /dev/null
-
-  if [ $? != 0 ]; then
+  
+ if ! cp ~/.config/openmw/openmw.cfg ~/.config/openmw/openmw.cfg.save &> /dev/null
+ then
       echo "Install Desktop is not Possible"
   else
       echo "Install Desktop is done"
@@ -214,9 +214,9 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
   fi
 
   # Clean
-  rm ~/Games/Morrowind.7z &> /dev/null
 
-  if [ $? != 0 ]; then
+ if ! rm ~/Games/Morrowind.7z &> /dev/null
+ then
       echo "Download is not Cleaned"
   else
       echo "Download is Cleaned"
