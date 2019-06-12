@@ -19,10 +19,16 @@
 
   # update updater
   if [ "$update_status" = "true" ]; then
-    wget -O $0 $update_source
+    wget -O "$0" $update_source
     $0 noupdate
     exit 0
   fi ;
+  
+#=================================================
+# RETRIEVE ARGUMENTS FROM THE MANIFEST AND VAR
+#=================================================
+
+distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' | sed 's/["]//g' | awk '{print $1}')
 
   # Check OS & wget
 
@@ -30,15 +36,14 @@
 
   if [ $? != 0 ]; then
     echo "wget is not Installed"
-     distribution=$(cat /etc/issue | head -n +1 | awk '{print $1}')
 
     if [ "$distribution" = "Manjaro" ]; then
       sudo pacman -S wget # Manjaro / Arch Linux
     
-    elif [ "$distribution" = "Ubuntu" -o "$distribution" = "Debian" ]; then
+    elif [ "$distribution" = "Ubuntu" || "$distribution" = "Debian" ]; then
       sudo apt install wget # Ubuntu / Debian
     
-    elif [ "$distribution" = "OpenSuse" -o "$distribution" = "CentOS" ]; then
+    elif [ "$distribution" = "OpenSuse" || "$distribution" = "CentOS" ]; then
       sudo yum install wget # OpenSuse / CentOS
     
     elif [ "$distribution" = "Fedora" ]; then
@@ -62,10 +67,10 @@
     if [ "$distribution" = "Manjaro" ]; then
       sudo pacman -S p7zip # Manjaro / Arch Linux
     
-    elif [ "$distribution" = "Ubuntu" -o "$distribution" = "Debian" ]; then
+    elif [ "$distribution" = "Ubuntu" || "$distribution" = "Debian" ]; then
       sudo apt install p7zip # Ubuntu / Debian
     
-    elif [ "$distribution" = "OpenSuse" -o "$distribution" = "CentOS" ]; then
+    elif [ "$distribution" = "OpenSuse" || "$distribution" = "CentOS" ]; then
       sudo yum install p7zip # OpenSuse / CentOS
     
     elif [ "$distribution" = "Fedora" ]; then
@@ -84,12 +89,11 @@
 
   if [ $? != 0 ]; then
     echo "sudo is not Installed"
-     distribution=$(cat /etc/issue | head -n +1 | awk '{print $1}')
 
     if [ "$distribution" = "Manjaro" ]; then
       su pacman -S sudo # Manjaro / Arch Linux
     
-    elif [ "$distribution" = "OpenSuse" -o "$distribution" = "CentOS" ]; then
+    elif [ "$distribution" = "OpenSuse" || "$distribution" = "CentOS" ]; then
       su yum install sudo # OpenSuse / CentOS
     
     elif [ "$distribution" = "Fedora" ]; then
@@ -108,12 +112,11 @@
 
   if [ $? != 0 ]; then
     echo "openmw is not Installed"
-     distribution=$(cat /etc/issue | head -n +1 | awk '{print $1}')
 
     if [ "$distribution" = "Manjaro" ]; then
       su pacman -S openmw # Manjaro / Arch Linux
     
-    elif [ "$distribution" = "OpenSuse" -o "$distribution" = "CentOS" ]; then
+    elif [ "$distribution" = "OpenSuse" || "$distribution" = "CentOS" ]; then
       su yum install openmw # OpenSuse / CentOS
     
     elif [ "$distribution" = "Fedora" ]; then
@@ -134,7 +137,7 @@
   	  wget https://raw.githubusercontent.com/liberodark/Ecarlate-Installer/master/version.txt -O version.txt
   	  version_online=$(md5sum version.txt)
   	  version_local=$(md5sum ~/Games/Morrowind/version.txt)
-  	  if [ $version_online -eq $version_local ]; then
+  	  if [ "$version_online" -eq "$version_local" ]; then
   	  	wget https://update.com -o update.tar.gz
   	  	mv update.tar.gz ~/Games/Morrowind/ && tar -xvf ~/Games/Morrowind/update.tar.gz
   	  	rm ~/Games/Morrowind/update.tar.gz
@@ -198,7 +201,7 @@
   fi
 
   # Extract
-  7z x ~/Games/Morrowind-FR.7z -o$HOME/Games/ &> /dev/null
+  7z x ~/Games/Morrowind-FR.7z -o"$HOME"/Games/ &> /dev/null
 
   if [ "$?" != 0 ]; then
       echo "Launcher is not Extracted"
