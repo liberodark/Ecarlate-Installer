@@ -37,19 +37,16 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
   if [ $? != 0 ]; then
     echo "wget is not Installed"
 
-    if [ "$distribution" = "Manjaro" ]; then
+    if [[ "$distribution" = "Manjaro" ]]; then
       sudo pacman -S wget # Manjaro / Arch Linux
     
-    elif [ "$distribution" = "Ubuntu" || "$distribution" = "Debian" ]; then
+    elif [[ "$distribution" = "Ubuntu" || "$distribution" = "Debian" ]]; then
       sudo apt install wget # Ubuntu / Debian
     
-    elif [ "$distribution" = "OpenSuse" || "$distribution" = "CentOS" ]; then
+    elif [[ "$distribution" = CentOS || "$distribution" = CentOS || "$distribution" = Red\ Hat || "$distribution" = Fedora || "$distribution" = Suse ]]; then
       sudo yum install wget # OpenSuse / CentOS
     
-    elif [ "$distribution" = "Fedora" ]; then
-      sudo dnf install wget # Fedora
-    
-    elif [ "$distribution" = "Gentoo" ]; then
+    elif [[ "$distribution" = "Gentoo" ]]; then
       su -c emerge wget # Gentoo
     fi
   else
@@ -64,19 +61,16 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
     echo "p7zip is not Installed"
      distribution=$(cat /etc/issue | head -n +1 | awk '{print $1}')
 
-    if [ "$distribution" = "Manjaro" ]; then
+    if [[ "$distribution" = "Manjaro" ]]; then
       sudo pacman -S p7zip # Manjaro / Arch Linux
     
-    elif [ "$distribution" = "Ubuntu" || "$distribution" = "Debian" ]; then
+    elif [[ "$distribution" = "Ubuntu" || "$distribution" = "Debian" ]]; then
       sudo apt install p7zip # Ubuntu / Debian
     
-    elif [ "$distribution" = "OpenSuse" || "$distribution" = "CentOS" ]; then
+    elif [[ "$distribution" = CentOS || "$distribution" = CentOS || "$distribution" = Red\ Hat || "$distribution" = Fedora || "$distribution" = Suse ]]; then
       sudo yum install p7zip # OpenSuse / CentOS
     
-    elif [ "$distribution" = "Fedora" ]; then
-      sudo dnf install p7zip # Fedora
-    
-    elif [ "$distribution" = "Gentoo" ]; then
+    elif [[ "$distribution" = "Gentoo" ]]; then
       su -c emerge p7zip # Gentoo
     fi
     else
@@ -90,16 +84,13 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
   if [ $? != 0 ]; then
     echo "sudo is not Installed"
 
-    if [ "$distribution" = "Manjaro" ]; then
+    if [[ "$distribution" = "Manjaro" ]]; then
       su pacman -S sudo # Manjaro / Arch Linux
     
-    elif [ "$distribution" = "OpenSuse" || "$distribution" = "CentOS" ]; then
+    elif [[ "$distribution" = CentOS || "$distribution" = CentOS || "$distribution" = Red\ Hat || "$distribution" = Fedora || "$distribution" = Suse ]]; then
       su yum install sudo # OpenSuse / CentOS
     
-    elif [ "$distribution" = "Fedora" ]; then
-      su dnf install sudo # Fedora
-    
-    elif [ "$distribution" = "Gentoo" ]; then
+    elif [[ "$distribution" = "Gentoo" ]]; then
       su -c emerge sudo # Gentoo
     fi
     else
@@ -113,16 +104,13 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
   if [ $? != 0 ]; then
     echo "openmw is not Installed"
 
-    if [ "$distribution" = "Manjaro" ]; then
+    if [[ "$distribution" = "Manjaro" ]]; then
       su pacman -S openmw # Manjaro / Arch Linux
     
-    elif [ "$distribution" = "OpenSuse" || "$distribution" = "CentOS" ]; then
+    elif [[ "$distribution" = CentOS || "$distribution" = CentOS || "$distribution" = Red\ Hat || "$distribution" = Fedora || "$distribution" = Suse ]]; then
       su yum install openmw # OpenSuse / CentOS
     
-    elif [ "$distribution" = "Fedora" ]; then
-      su dnf install openmw # Fedora
-    
-    elif [ "$distribution" = "Gentoo" ]; then
+    elif [[ "$distribution" = "Gentoo" ]]; then
       su -c emerge openmw # Gentoo
     fi
     else
