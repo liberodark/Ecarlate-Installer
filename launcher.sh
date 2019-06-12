@@ -59,7 +59,6 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
 
   if [ $? != 0 ]; then
     echo "p7zip is not Installed"
-     distribution=$(cat /etc/issue | head -n +1 | awk '{print $1}')
 
     if [[ "$distribution" = "Manjaro" ]]; then
       sudo pacman -S p7zip # Manjaro / Arch Linux
