@@ -32,10 +32,8 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
 
   # Check OS & wget
 
-  which wget &> /dev/null
-
-  if [ $? != 0 ]; then
-    echo "wget is not Installed"
+  if ! command -v wget &> /dev/null; then
+  echo "wget is not Installed"
 
     if [[ "$distribution" = "Manjaro" ]]; then
       sudo pacman -S wget # Manjaro / Arch Linux
@@ -55,10 +53,8 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
 
   # Check OS & p7zip
 
-  which 7z &> /dev/null
-
-  if [ $? != 0 ]; then
-    echo "p7zip is not Installed"
+  if ! command -v 7z &> /dev/null; then
+  echo "p7zip is not Installed"
 
     if [[ "$distribution" = "Manjaro" ]]; then
       sudo pacman -S p7zip # Manjaro / Arch Linux
@@ -78,10 +74,8 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
 
   # Check OS & sudo
 
-  which sudo &> /dev/null
-
-  if [ $? != 0 ]; then
-    echo "sudo is not Installed"
+  if ! command -v sudo &> /dev/null; then
+  echo "sudo is not Installed"
 
     if [[ "$distribution" = "Manjaro" ]]; then
       su pacman -S sudo # Manjaro / Arch Linux
@@ -98,10 +92,8 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
 
     # Check OS & openmw
 
-  which openmw &> /dev/null
-
-  if [ $? != 0 ]; then
-    echo "openmw is not Installed"
+  if ! command -v openmw &> /dev/null; then
+  echo "openmw is not Installed"
 
     if [[ "$distribution" = "Manjaro" ]]; then
       su pacman -S openmw # Manjaro / Arch Linux
@@ -142,7 +134,7 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
   # Download Morrowind
   wget https://stream.and.me.ynh.ovh/site/Morrowind.7z &> /dev/null
 
-  if [ "$?" != 0 ]; then
+  if [ $? != 0 ]; then
       echo "Error Downloading Morrowind"
       exit
   else
@@ -152,7 +144,7 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
   # Download SHA256
    wget https://stream.and.me.ynh.ovh/site/Morrowind.7z.sha512sum &> /dev/null
 
-  if [ "$?" != 0 ]; then
+  if [ $? != 0 ]; then
       echo "Error Download SHA"
       exit
   else
@@ -162,7 +154,7 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
   # Check Morrowind
   sha512sum -c Morrowind.7z.sha512sum &> /dev/null
 
-  if [ "$?" != 0 ]; then
+  if [ $? != 0 ]; then
       echo "Error Check Morrowind"
       exit
   else
@@ -173,7 +165,7 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
 
   mkdir -p ~/Games/ &> /dev/null
 
-  if [ "$?" != 0 ]; then
+  if [ $? != 0 ]; then
       echo "Folder is not Created"
   else
       echo "Folder is Created"
@@ -181,7 +173,7 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
 
   mv Morrowind.7z ~/Games/ &> /dev/null
 
-  if [ "$?" != 0 ]; then
+  if [ $? != 0 ]; then
       echo "Install Launcher is not Possible"
   else
       echo "Install Launcher is done"
@@ -190,7 +182,7 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
   # Extract
   7z x ~/Games/Morrowind-FR.7z -o"$HOME"/Games/ &> /dev/null
 
-  if [ "$?" != 0 ]; then
+  if [ $? != 0 ]; then
       echo "Launcher is not Extracted"
   else
       echo "Launcher is Extracted"
@@ -198,7 +190,7 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
 
   sudo mv ~/Games/Morrowind/morrowind.png /usr/share/pixmaps/ &> /dev/null
 
-  if [ "$?" != 0 ]; then
+  if [ $? != 0 ]; then
       echo "Install Icon is not Possible"
   else
       echo "Install Icon is done"
@@ -206,7 +198,7 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
 
   sudo mv ~/Games/Morrowind/morrowind.desktop /usr/share/applications/ &> /dev/null
 
-  if [ "$?" != 0 ]; then
+  if [ $? != 0 ]; then
       echo "Install Desktop is not Possible"
   else
       echo "Install Desktop is done"
@@ -214,7 +206,7 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
   
   cp ~/.config/openmw/openmw.cfg ~/.config/openmw/openmw.cfg.save &> /dev/null
 
-  if [ "$?" != 0 ]; then
+  if [ $? != 0 ]; then
       echo "Install Desktop is not Possible"
   else
       echo "Install Desktop is done"
@@ -224,7 +216,7 @@ distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' 
   # Clean
   rm ~/Games/Morrowind.7z &> /dev/null
 
-  if [ "$?" != 0 ]; then
+  if [ $? != 0 ]; then
       echo "Download is not Cleaned"
   else
       echo "Download is Cleaned"
